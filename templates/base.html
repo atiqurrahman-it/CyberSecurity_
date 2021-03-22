@@ -1,0 +1,122 @@
+<!doctype html>
+{% load static %}
+<html lang="zxx">
+
+<!-- Mirrored from templates.envytheme.com/seqty/default/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Jan 2021 19:46:05 GMT -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/boxicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/odometer.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+    <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+
+    <title> {% block title %} {% endblock title %} </title>
+
+    <style>
+        .page-title-area.page-title-style-two {
+    padding-top: 160px;
+    padding-bottom: 50px;
+}
+    </style>
+
+    {% block stylesheet %}
+    {% endblock stylesheet %}
+</head>
+
+
+<body>
+
+
+{% block header %}
+{% endblock header %}
+
+
+{% block mainContent %}
+
+{% endblock mainContent %}
+
+
+{% block footer %}
+{% endblock footer %}
+
+
+<div class="go-top">
+    <i class="bx bx-chevrons-up"></i>
+    <i class="bx bx-chevrons-up"></i>
+</div>
+
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/meanmenu.min.js' %}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/nice-select.min.js' %}"></script>
+<script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'assets/js/jarallax.min.js' %}"></script>
+<script src="{% static 'assets/js/appear.min.js' %}"></script>
+<script src="{% static 'assets/js/odometer.min.js' %}"></script>
+<script src="{% static 'assets/js/smoothscroll.min.js' %}"></script>
+<script src="{% static 'assets/js/form-validator.min.js' %}"></script>
+<script src="{% static 'assets/js/contact-form-script.js' %}"></script>
+<script src="{% static 'assets/js/ajaxchimp.min.js' %}"></script>
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+{% block script %}
+{% endblock script %}
+
+</body>
+
+<!-- Mirrored from templates.envytheme.com/seqty/default/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Jan 2021 19:46:24 GMT -->
+
+</html>
+<!-- sweetalert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+$("#submitBtn").click(function() {
+
+   var name = $("#name").val();
+   var email = $("#email").val();
+   var subject = $("#subject").val();
+   var message=$("#message").val();
+
+   //mail validation
+    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+
+  if(name != '' && email.match(mailformat) && subject != '' && message != '') {
+      swal({
+          title:  "Hi "+name,
+          text: "Thanks for Contacting us !",
+          icon: "success",
+          button: "ok",
+      });
+      //$( "#contact_form_id" ).submit();
+      //location.reload();
+
+  }
+   /*swal({
+          title:  email+" invalid format ",
+          text: "Please input correct email",
+          icon: "warning",
+      });*/
+
+});
+</script>

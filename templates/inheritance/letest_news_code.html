@@ -1,0 +1,32 @@
+  {% load static %}
+<section class="blog-area blog-area-four pb-70">
+    <div class="container">
+      <div class="section-title">
+        <span> {{ news_section.title }} </span>
+        <h2> {{ news_section.details}} </h2>
+      </div>
+      <div class="row">
+      {% for p in total_news %}
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog">
+            <div class="blog-img">
+              <a href="{% url 'Latest_News_details' id=p.id %}">
+                <img src="{{ p.news_image.url }}" style="width:396px;height:425px;" alt="Image">
+              </a>
+            </div>
+            <div class="blog-content">
+              <span> {{ p.Create }} </span>
+              <h3><a href="{% url 'Latest_News_details' id=p.id %}">{{ p.category_news_post.name }} </a></h3>
+              <p> {{ p.news_details|truncatewords:15}} </p>
+              <a href="{% url 'Latest_News_details' id=p.id %}" class="read-more">
+                Read More
+                <i class="flaticon-right-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </section>

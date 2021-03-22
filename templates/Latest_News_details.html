@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} News Details {% endblock title %}
+
+{% block stylesheet %}
+{% endblock stylesheet %}
+
+{% block header %}
+{% include 'inheritance/header.html' %}
+{% endblock header %}
+
+{% block mainContent %}
+
+<div class="page-title-area page-title-style-two">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Blog Details</h2>
+            <ul>
+                <li>
+                    <a href="{% url 'homepage' %}">
+                        <i class="bx bx-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="active">Latest news Details</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="blog-details-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog-details-content">
+                    <div class="blog-details-img">
+                        <img src="{{ news_details.news_image.url }}" alt="Image">
+                    </div>
+                    <div class="blog-top-content">
+                        <div class="news-content">
+                            <ul class="admin">
+
+                                <li class="float">
+                                    <i class="bx bx-calendar-alt"></i>
+                                    {{ news_details.Create }}
+                                </li>
+                            </ul>
+                            <h3> {{ news_details.title }} </h3>
+                            <p> {{ news_details.news_details|safe}} </p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="widget-sidebar">
+                    <div class="sidebar-widget search">
+                        <form class="search-form" method="post" action="{% url 'search' %}">
+                            {% csrf_token %}
+                            <input class="form-control" name="search" placeholder="Search here" type="text">
+                            <button class="search-button" type="submit">
+                                <i class="bx bx-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="sidebar-widget recent-post">
+                        <h3 class="widget-title">Recent Post</h3>
+                        <ul>
+                            {% for p in Recent_Post %}
+                            <li>
+                                <a href="{% url 'Latest_News_details' id=p.id %}">
+                                    {{ p.title }}
+                                    <img src="{{ p.news_image.url }}" alt="Image" style="widget:100px; height:80px;">
+                                </a>
+                                <span>  {{ p.Create }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget categories">
+                        <h3>Categories</h3>
+                        <ul>
+                            {% for p in category %}
+                            <li>
+                                <a href="{% url 'Latest_News_category' id=p.id %}"> {{ p.name }} </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock mainContent %}
+
+
+{% block footer %}
+{% include 'inheritance/footer.html' %}
+{% endblock footer %}
+
+
+{% block script %}
+{% endblock script %}
+
+

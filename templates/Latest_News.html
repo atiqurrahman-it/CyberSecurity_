@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Latest News {% endblock title %}
+
+{% block stylesheet %}
+{% endblock stylesheet %}
+
+{% block header %}
+{% include 'inheritance/header.html' %}
+{% endblock header %}
+
+{% block mainContent %}
+
+<div class="page-title-area page-title-style-two">
+    <div class="container">
+        <div class="page-title-content">
+            <h2> Latest News </h2>
+            <ul>
+                <li>
+                    <a href="{% url 'homepage' %}">
+                        <i class="bx bx-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="active"> Latest News</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% include 'inheritance/letest_news_code.html' %}
+<div class="container mb-4">
+     <div class="row">
+         <div class="col-md-12">
+             <nav aria-label="Page navigation example">
+                  {% if total_news.has_other_pages %}
+                 <ul class="pagination">
+                     {% if total_news.has_previous %}
+                      <li  class="page-item"><a  class="page-link" href="?page={{ total_news.previous_page_number }}">Previous</a></li>
+                    {% else %}
+                      <li class="disabled"></li>
+                    {% endif %}
+
+                      {% for i in total_news.paginator.page_range %}
+                      {% if total_news.number == i %}
+                     <li class="active"> <a  class="page-link active">  {{ i }} </a> </li>
+                      {% else %}
+                        <li class="page-item"><a  class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+
+                     {% if total_news.has_next %}
+                     <li class="page-item"><a class="page-link" href="?page={{ total_news.next_page_number }}">Next</a></li>
+                     {% else %}
+                     <li class="disabled"></li>
+                     {% endif %}
+                 </ul>
+                 {% endif %}
+             </nav>
+
+           </div>
+       </div>
+   </div>
+</div>
+
+
+
+
+{% endblock mainContent %}
+
+
+{% block footer %}
+{% include 'inheritance/footer.html' %}
+{% endblock footer %}
+
+
+{% block script %}
+{% endblock script %}
+
+

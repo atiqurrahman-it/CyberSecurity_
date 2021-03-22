@@ -1,0 +1,35 @@
+{% load static  %}
+
+ <section class="services-area pt-100 pb-70" style="background-color:{{service_bg.background_color}}">
+    <div class="container">
+      <div class="section-title">
+        <span> {{service_bg.Heading}} </span>
+        <h2> {{service_bg.short_description}} </h2>
+      </div>
+      <div class="row">
+         {% for p in total_service %}
+        <div class="col-lg-3 col-sm-6">
+          <div class="single-services">
+            <div class="services-img">
+              <a href="{% url 'service_single_page' id=p.id %}">
+                <img src="{{ p.image.url }}" style="width:396px;height:350px;" alt="Image" >
+              </a>
+            </div>
+            <div class="services-content">
+              <h3><a href="{% url 'service_single_page' id=p.id %}">{{ p.name|truncatewords:15 }} </a></h3>
+              <div class="content">
+                <p> {{ p.Service_details|truncatewords:25 }} </p>
+                <a href="{% url 'service_single_page' id=p.id %}" class="read-more">
+                  Read More
+                  <i class="flaticon-right-arrow"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       {% endfor %}
+
+      </div>
+    </div>
+  </section>

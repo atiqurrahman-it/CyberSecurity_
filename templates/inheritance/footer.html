@@ -1,0 +1,107 @@
+<footer class="footer-area pt-100 pb-70 jarallax" data-jarallax='{"speed": 0.3}'>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="single-footer-widget">
+            <a href="{% url 'homepage' %}" class="logo">
+              <img src="{{ footer_fist_par.logo.url }}" style="width:180px; height:50px" alt="Image">
+            </a>
+            <p> {{ footer_fist_par.short_description }}</p>
+            <ul class="social-icon">
+              <li>
+                <a href="{{ header_nav.facebook }}" target="_blank">
+                  <i class="bx bxl-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="{{ header_nav.instagram }}"  target="_blank">
+                  <i class="bx bxl-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a href="{{ header_nav.linkedin }}"  target="_blank">
+                  <i class="bx bxl-linkedin-square"></i>
+                </a>
+              </li>
+              <li>
+                <a href="{{ header_nav.twitter }}"  target="_blank">
+                  <i class="bx bxl-twitter"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="single-footer-widget">
+            <h3>Address</h3>
+            <ul class="address">
+              <li class="location">
+                <i class="bx bxs-location-plus"></i>
+                {{ footer_fist_par.location }}
+              </li>
+              <li>
+                <i class="bx bxs-envelope"></i>
+<!--                <a href="https://templates.envytheme.com/cdn-cgi/l/email-protection#96fef3fafaf9d6e5f3e7e2efb8f5f9fb"><span class="__cf_email__" data-cfemail="563e333a3a3916253327222f7835393b">[email&#160;protected]</span></a>-->
+                <a href="#"> {{ footer_fist_par.email }}</a>
+              </li>
+              <li>
+                <i class="bx bxs-phone-call"></i>
+                <a href="tel:+1-(514)-312-5678"> {{ header_nav.phone }} </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="single-footer-widget">
+            <h3>Solution</h3>
+            <ul class="import-link">
+              {%for p in footer_solution %}
+              <li>
+                <a href="{{p.link}}"> {{p.name}}</a>
+              </li>
+              {%endfor%}
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="single-footer-widget">
+            <h3>Resources</h3>
+            <ul class="import-link">
+              {%for p in footer_resources %}
+              <li>
+                <a href="{{p.link}}"> {{p.name}}</a>
+              </li>
+              {%endfor%}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<div class="copy-right-area">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-6">
+          <p>
+            Copyright <i class="bx bx-copyright"></i> 2021
+             <span>development by</span> <a href="https://www.facebook.com/atiqur.cse/" style="color:#0c6fff" target="_blank">   Atiqur Rahman </a></span>
+          </p>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <ul class="footer-menu">
+            <li>
+              <a href="#">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Terms & Conditions
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

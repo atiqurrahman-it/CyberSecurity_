@@ -1,0 +1,27 @@
+
+<section class="counter-area pt-100 pb-70 jarallax" style="background-image: url({{Why_Choose_bg.background_image.url}});" data-jarallax='{"speed": 0.3}'>
+    <div class="container">
+      <div class="counter-max-wide">
+        <div class="section-title white-title">
+          <span> {{ Why_Choose_bg.title}} </span>
+          <h2> {{ Why_Choose_bg.details}} </h2>
+        </div>
+        <div class="row">
+          {% for p in Why_Choose%}
+          <div class="col-lg-6 col-sm-6">
+            <div class="single-counter overly-one">
+              <div class="overly-two">
+                <i> <img src="{{ p.logo.url }}" style="width:50px; hwidth:50px;"> </i>
+                <h2>
+                  <span class="odometer" data-count="{{ p.quantity }}">00</span>
+                </h2>
+                <h3> {{ p.Skills}} </h3>
+              </div>
+            </div>
+          </div>
+          {% endfor%}
+
+        </div>
+      </div>
+    </div>
+  </section>

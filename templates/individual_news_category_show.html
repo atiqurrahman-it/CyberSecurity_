@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {% endblock title %}
+{% block stylesheet %}
+{% endblock stylesheet %}
+
+{% block header %}
+{% include 'inheritance/header.html' %}
+{% endblock header %}
+
+{% block mainContent %}
+
+<div class="page-title-area page-title-style-two">
+    <div class="container">
+        <div class="page-title-content">
+            <h2> {{category_name}} </h2>
+            <ul>
+                <li>
+                    <a href="{% url 'homepage' %}">
+                        <i class="bx bx-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="active"> individual category all show</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<section class="services-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+
+            <!--          <h1 style="color:#0a53be;"> as {{aa}}</h1>-->
+
+        </div>
+        <div class="row">
+            {% for p in Related_category_show %}
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-services">
+                    <div class="services-img">
+                        <a href="{% url 'Latest_News_details' id=p.id %}">
+                            <img src="{{ p.news_image.url }}" alt="Image" style="width:280px; height:350px">
+                        </a>
+                    </div>
+                    <div class="services-content">
+                        <h3><a href="{% url 'Latest_News_details' id=p.id %}">{{ p.title|truncatewords:8 }} </a></h3>
+                        <div class="content">
+                            <p> {{ p.news_details|truncatewords:20 }} </p>
+                            <a href="{% url 'Latest_News_details' id=p.id %}" class="read-more">
+                                Read More
+                                <i class="flaticon-right-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock mainContent %}
+
+
+{% block footer %}
+{% include 'inheritance/footer.html' %}
+{% endblock footer %}
+
+
+{% block script %}
+{% endblock script %}
+
+
